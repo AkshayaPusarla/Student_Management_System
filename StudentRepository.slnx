@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="StudentRepository.Tests/StudentRepository.Tests.csproj" Id="c0371a23-3df3-4bf7-b7b3-77c0f3a5dbe2" />
+  <Project Path="StudentRepository/StudentRepository.csproj" />
+  <Project Path="StudetAzureFunction/StudetAzureFunction.csproj" Id="524aba4b-946e-410a-b65f-aacd032717a0" />
+</Solution>

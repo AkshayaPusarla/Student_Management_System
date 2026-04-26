@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Your script -->
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 🔹 NAVBAR -->
+    <div class="navbar">
+        <h2>✏️ Update Student</h2>
+        <a href="viewStudents.html"><button>⬅ Back</button></a>
+    </div>
+
+    <!-- 🔹 FORM -->
+    <div class="card">
+
+        <input type="text" id="id" placeholder="Student ID" readonly>
+
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+        <input type="text" id="course" placeholder="Enter Course">
+
+        <button onclick="update()">Update Student</button>
+
+    </div>
+
+    <!-- 🔹 STUDENT LIST (REFERENCE) -->
+    <div class="card">
+        <h3>Students</h3>
+        <div id="list"></div>
+    </div>
+
+</div>
+
+<script>
+// 🔥 GET ID FROM URL
+const params = new URLSearchParams(window.location.search);
+const studentId = params.get("id");
+
+// 🔹 LOAD STUDENT DATA
+async function loadStudent() {
+
+    if (!studentId) {
+        alert("❌ No student selected");
+        return;
+    }
+
+    const student = await getStudentById(studentId);
+
+    if (!student) {
+        alert("❌ Student not found");
+        return;
+    }
+
+    // 🔥 AUTO-FILL FORM
+    document.getElementById("id").value = student.id;
+    document.getElementById("name").value = student.name;
+    document.getElementById("rollNumber").value = student.rollNumber;
+    document.getElementById("course").value = student.course;
+}
+
+// 🔹 UPDATE FUNCTION
+async function update() {
+
+    const student = {
+        id: parseInt(document.getElementById("id").value),
+        name: document.getElementById("name").value.trim(),
+        rollNumber: document.getElementById("rollNumber").value.trim(),
+        course: document.getElementById("course").value.trim()
+    };
+
+    // 🚨 VALIDATION
+    if (!student.name || !student.rollNumber || !student.course) {
+        alert("⚠️ All fields are required!");
+        return;
+    }
+
+    const success = await updateStudent(student.id, student);
+
+    if (success) {
+        // 🔥 REDIRECT AFTER UPDATE
+        window.location.href = "viewStudents.html";
+    }
+}
+
+// 🔥 INITIAL LOAD
+loadStudent();
+renderStudentList("list");
+
+</script>
+
+</body>
+</html>

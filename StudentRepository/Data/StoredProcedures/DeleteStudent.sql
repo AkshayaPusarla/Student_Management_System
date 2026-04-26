@@ -1,0 +1,11 @@
+﻿IF OBJECT_ID('DeleteStudent', 'P') IS NOT NULL
+DROP PROCEDURE DeleteStudent;
+GO
+
+CREATE PROCEDURE DeleteStudent
+@Id INT
+AS
+BEGIN
+DELETE FROM Students WHERE Id = @Id
+END
+GO

@@ -1,0 +1,11 @@
+﻿IF OBJECT_ID('GetStudentById', 'P') IS NOT NULL
+DROP PROCEDURE GetStudentById;
+GO
+
+CREATE PROCEDURE GetStudentById
+@Id INT
+AS
+BEGIN
+SELECT * FROM Students WHERE Id = @Id
+END
+GO

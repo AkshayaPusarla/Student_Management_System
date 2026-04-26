@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "StudentRepository.Tests\\StudentRepository.Tests.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "StudetAzureFunction\\StudetAzureFunction.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "StudentRepository\\StudentRepository.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

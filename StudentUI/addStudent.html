@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Add Student</h2>
+
+    <div class="card">
+        <input id="name" placeholder="Name">
+        <input id="rollNumber" placeholder="Roll Number">
+        <input id="course" placeholder="Course">
+
+        <button onclick="add()">Add</button>
+    </div>
+</div>
+
+<script>
+async function add() {
+
+    const student = {
+        name: document.getElementById("name").value.trim(),
+        rollNumber: document.getElementById("rollNumber").value.trim(),
+        course: document.getElementById("course").value.trim()
+    };
+
+    // 🚨 VALIDATION
+    if (!student.name || !student.rollNumber || !student.course) {
+        alert("⚠️ All fields are required!");
+        return;
+    }
+
+    const success = await addStudent(student);
+
+    if (success) {
+        // 🔥 CLEAR FORM
+        document.getElementById("name").value = "";
+        document.getElementById("rollNumber").value = "";
+        document.getElementById("course").value = "";
+
+        // 🔥 THIS IS THE FIX
+        window.location.href = "viewStudents.html";
+    }
+}
+</script>
+
+</body>
+</html>

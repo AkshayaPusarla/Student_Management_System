@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="navbar">
+        <h2>Delete Student</h2>
+        <a href="view.html"><button>⬅ Back</button></a>
+    </div>
+
+    <div class="card">
+        <input id="id" placeholder="Enter ID">
+
+        <button onclick="del()" class="delete-btn">Delete</button>
+    </div>
+
+    <div class="card" id="list"></div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const studentId = params.get("id");
+
+if (studentId) {
+    document.getElementById("id").value = studentId;
+}
+
+async function del() {
+
+    const id = document.getElementById("id").value;
+
+    if (!id) {
+        alert("Enter ID");
+        return;
+    }
+
+    if (!confirm("Are you sure you want to delete?")) return;
+
+    const success = await deleteStudentById(id);
+
+    if (success) {
+        // 🔥 FORCE REDIRECT
+        window.location.href = "viewStudents.html";
+    }
+}
+</script>
+
+</body>
+</html>

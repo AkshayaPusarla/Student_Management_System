@@ -1,0 +1,10 @@
+﻿IF OBJECT_ID('GetAllStudents', 'P') IS NOT NULL
+DROP PROCEDURE GetAllStudents;
+GO
+
+CREATE PROCEDURE GetAllStudents
+AS
+BEGIN
+SELECT * FROM Students
+END
+GO

@@ -1,0 +1,97 @@
+/* 🌟 GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6f9;
+}
+
+/* 🧭 NAVBAR */
+.navbar {
+  background: #1e293b;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 📦 CONTAINER */
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+/* 💳 CARD */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* 🏷️ HEADINGS */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+/* 🧾 INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+/* 🔘 BUTTONS */
+button {
+  padding: 10px 16px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* 🔴 DELETE */
+.delete-btn {
+  background: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* 🔙 BACK BUTTON */
+.back-btn {
+  background: #6b7280;
+}
+
+.back-btn:hover {
+  background: #4b5563;
+}
+
+/* 📋 STUDENT LIST */
+.student {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.actions {
+  margin-top: 8px;
+}
